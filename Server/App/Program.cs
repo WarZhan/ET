@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading;
 using ETModel;
 using NLog;
@@ -14,7 +14,9 @@ namespace App
 			
 			try
 			{			
+				// 加载 Server Model
 				Game.EventSystem.Add(DLLType.Model, typeof(Game).Assembly);
+				// 加载 Server Hotfix
 				Game.EventSystem.Add(DLLType.Hotfix, DllHelper.GetHotfixAssembly());
 
 				Options options = Game.Scene.AddComponent<OptionComponent, string[]>(args).Options;
